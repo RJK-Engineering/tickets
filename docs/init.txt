@@ -1,0 +1,67 @@
+composer create-project laravel/laravel tickets
+cd tickets/
+git init
+git add .
+git commit -m "composer create-project laravel/laravel tickets"
+git remote add origin /run/media/rob/FD2/git/tickets.git
+git push -u origin master
+edit .env
+npm i @vitejs/plugin-vue
+npm i --save-dev @types/node
+npm i vue@latest
+npm i vue-router@4
+npm i typescript
+edit routes/web.php
+    return view('app');
+mv resources/views/welcome.blade.php resources/views/app.blade.php
+edit resources/views/app.blade.php
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
+edit vite.config.js
+    input: ['resources/css/app.css', 'resources/js/app.ts'],
+create resources/js/app.ts
+    import { createApp } from "vue"
+    import App from "../App.vue"
+    import { router } from "./router"
+
+    createApp(App)
+    .use(router)
+    .mount("#app")
+rm resources/js/{app.js,bootstrap.js}
+create resources/App.vue
+    <template>
+        <h1>Tickets!</h1>
+        <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+        <nav>
+            <RouterLink :to="{ name: 'tickets' }">Tickets</RouterLink>
+        </nav>
+        <main>
+            <RouterView />
+        </main>
+    </template>
+create tsconfig.json
+    {
+        "compileOnSave": true,
+        "compilerOptions": {
+            "module": "esnext",
+            "target": "esnext",
+            "types": ["vite/client", "node"],
+            "moduleResolution": "node",
+            "lib": ["es2017", "dom"],
+            "allowUnreachableCode": false,
+            "allowUnusedLabels": false,
+            "declaration": true,
+            "strict": true,
+            "noImplicitAny": true,
+            "noImplicitReturns": true,
+            "noImplicitThis": true,
+            "alwaysStrict": true,
+            "esModuleInterop": true,
+            "checkJs": true,
+            "jsx": "preserve",
+            "resolveJsonModule": true,
+        },
+        "include": ["resources/js/**/*"]
+    }
+
+npm run build
+php artisan serve

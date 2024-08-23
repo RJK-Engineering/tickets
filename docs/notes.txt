@@ -5,3 +5,7 @@ resources/js/bootstrap.js
     window.axios = axios;
 
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+
+after executing "php artisan install:api":
+API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.

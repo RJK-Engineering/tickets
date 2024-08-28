@@ -16,7 +16,7 @@ https://laravel.com/docs/11.x/authentication
 - authentication configuration file: config/auth.php
 - Guards and providers (authentication) should not be confused with "roles" and "permissions" (authorization)
 - Laravel Breeze starter kit: creates authentication controllers, routes, and views
-- built-in authentication and session services: Auth and Session facades, cookie-based 
+- built-in authentication and session services: Auth and Session facades, cookie-based
 
 Authentication Services
 - browser: login form, store authenticated user in session, session using cookie
@@ -30,7 +30,7 @@ Authentication Services
 - For API that will be consumed by third parties, API/SPA/mobile authentication
     - Passport or Sanctum to provide API token authentication
 
-Sanctum 
+Sanctum
 - will first determine if the request includes a session cookie that references an authenticated session.
 - calls Laravel's built-in authentication services
     - If the request is not being authenticated via a session cookie: check for API token on request
@@ -45,9 +45,21 @@ Route middleware can be used to only allow authenticated users to access a given
 
 Manually authenticate users
 - Access Laravel's authentication services via the Auth facade
-    - class LoginController extends Controller
-        - use Illuminate\Support\Facades\Auth;
-    
-verder lezen:
-vanaf https://laravel.com/docs/11.x/authentication#authenticating-users
+    class LoginController extends Controller
+    use Illuminate\Support\Facades\Auth;
+    if (Auth::attempt(email and password from request)) {
+
+Sanctum
+- stores user API tokens in a single database table and
+- authenticate incoming HTTP requests via the Authorization header which should contain a valid API token
+- authenticate single page applications
+    - how different from second point ???????????????????????
+        - does not use tokens but Laravel's built-in cookie based session authentication services
+            - Laravel's web authentication guard
+        - CSRF protection, session authentication
+
+protect routes: attach the sanctum authentication guard
+    - routes/web.php and routes/api.php
+
+https://laravel.com/docs/11.x/authentication#authenticating-users
 https://laravel.com/docs/11.x/sanctum

@@ -8,8 +8,8 @@ const user = ref({})
 	<form>
 		<table>
 			<tr>
-				<td><label for="username">Name</label></td>
-				<td><input id="username" v-model.trim="user.name" maxlength="255" /></td>
+				<td><label for="email">Email</label></td>
+				<td><input id="email" v-model.trim="user.email" maxlength="255" /></td>
 			</tr>
 			<tr>
 				<td><label for="password">Password</label></td>
@@ -17,7 +17,7 @@ const user = ref({})
 			</tr>
 			<tr>
 				<td>
-					<button @click.prevent="$emit('submit', user)" :disabled="!user.name || !user.password">
+					<button @click.prevent="$emit('submit', user)" :disabled="!user.email || !user.password">
 						Submit
 					</button>
 				</td>

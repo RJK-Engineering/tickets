@@ -1,10 +1,11 @@
 import axios from "axios";
+import { postRequest } from "../../services/http";
 
 export const login = (user) => {
     console.log(user)
 
     axios.get('/sanctum/csrf-cookie').then(response => {
-        axios.post('/login', user)
+        postRequest('/login', user)
         console.log("login")
     });
 }

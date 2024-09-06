@@ -11,4 +11,3 @@ Route::get('/', function () {
 Route::get('/me', function (Request $request) {
     return $request;
 });
-Route::post('/login', [LoginController::class, 'authenticate']);

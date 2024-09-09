@@ -9,3 +9,29 @@ resources/js/bootstrap.js
 
 after executing "php artisan install:api":
 API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.
+
+-------------------
+tickets: ID, Titel, Categorieën, Status, Aangemaakt door, Aangemaakt op, Laatste update op, Toegewezen aan
+users: Voornaam, Achternaam, Email-adres, Rol, Telefoonnummer
+
+-------------------
+flowchart: create ticket
+interactie tussen de frontend (Vue3 met een store) en de backend (Laravel API).
+Draw.io, Lucidchart
+
+User Interface (UI) Componenten (bijv. Ticket Formulier)
+Store
+    State
+    Getters
+    Actions
+backend
+    Routes
+    Controllers
+    Modellen
+    Responses
+    Requests
+    Database
+
+actions
+Verzenden ticketinformatie naar API
+Koppel categorieën aan ticket via model

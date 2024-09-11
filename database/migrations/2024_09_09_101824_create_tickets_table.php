@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('created_by')->constrained(table: 'users');
             $table->timestamps();
+            // DATETIME instead of TIMESTAMP column type
+            // $table->dateTime('created_at')->useCurrent();
+            // $table->dateTime('updated_at')->useCurrentOnUpdate()->nullable();
+            $table->string('title');
+            $table->string('status');
         });
     }
 

@@ -24,12 +24,12 @@ CREATE TABLE ticket_notes
 
 CREATE TABLE tickets
 (
-  id              BIGINT   NOT NULL,
-  created_by      BIGINT   NOT NULL,
-  created_at      DATETIME NOT NULL,
-  last_updated_at DATETIME NULL    ,
-  title           VARCHAR  NOT NULL,
-  status          VARCHAR  NOT NULL,
+  id         BIGINT   NOT NULL,
+  created_by BIGINT   NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NULL    ,
+  title      VARCHAR  NOT NULL,
+  status     VARCHAR  NOT NULL,
   PRIMARY KEY (id)
 );
 

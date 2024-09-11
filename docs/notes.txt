@@ -1,4 +1,12 @@
+Acceptatiecriteria:
+Gebruik maken van Laravel/Vite als ontwikkelomgeving
+De applicatie is gebouwd met Vue3
+Gebruik van Vue-router voor client-side routing
+Implementatie van een store factory, router- en Axios facade
+De applicatie is gekoppeld aan een git repository
+Authenticatie is geregeld middels JWT, zoals beschreven in GitHub JWT Auth of Sanctum
 
+--------------------------------
 removed, don't know if necessary:
 resources/js/bootstrap.js
     import axios from 'axios';
@@ -11,8 +19,8 @@ after executing "php artisan install:api":
 API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.
 
 -------------------
-tickets: ID, Titel, Categorieën, Status, Aangemaakt door, Aangemaakt op, Laatste update op, Toegewezen aan
-users: Voornaam, Achternaam, Email-adres, Rol, Telefoonnummer
+ticket: ID, Titel, Categorieën, Status, Aangemaakt door, Aangemaakt op, Laatste update op, Toegewezen aan
+user: Voornaam, Achternaam, Email-adres, Rol, Telefoonnummer
 
 -------------------
 flowchart: create ticket
@@ -35,3 +43,6 @@ backend
 actions
 Verzenden ticketinformatie naar API
 Koppel categorieën aan ticket via model
+
+TODO
+add relations to model

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TicketNotesSeeder extends Seeder
+class TicketNoteSeeder extends Seeder
 {
     /**
      * Run the database seeds.

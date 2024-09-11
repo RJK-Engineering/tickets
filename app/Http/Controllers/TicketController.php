@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TicketNotes;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class TicketNotesController extends Controller
+class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class TicketNotesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TicketNotes $ticketNotes)
+    public function show(Ticket $ticket)
     {
         //
     }
@@ -42,7 +42,7 @@ class TicketNotesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TicketNotes $ticketNotes)
+    public function edit(Ticket $ticket)
     {
         //
     }
@@ -50,7 +50,7 @@ class TicketNotesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TicketNotes $ticketNotes)
+    public function update(Request $request, Ticket $ticket)
     {
         //
     }
@@ -58,7 +58,7 @@ class TicketNotesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TicketNotes $ticketNotes)
+    public function destroy(Ticket $ticket)
     {
         //
     }

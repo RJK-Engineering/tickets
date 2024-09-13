@@ -17,7 +17,7 @@ class TicketNoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'note' => fake()->paragraph(8),
         ];
     }
 }

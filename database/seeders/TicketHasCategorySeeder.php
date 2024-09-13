@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TicketHasCategorySeeder extends Seeder
@@ -12,6 +11,9 @@ class TicketHasCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $note = \App\Models\TicketHasCategory::factory()->create([
+            'ticket_id' => 1,
+            'category_id' => 1,
+        ]);
     }
 }

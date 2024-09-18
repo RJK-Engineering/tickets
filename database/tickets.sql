@@ -24,12 +24,13 @@ CREATE TABLE ticket_notes
 
 CREATE TABLE tickets
 (
-  id         BIGINT   NOT NULL,
-  created_by BIGINT   NOT NULL,
-  created_at DATETIME NOT NULL,
-  updated_at DATETIME NULL    ,
-  title      VARCHAR  NOT NULL,
-  status     VARCHAR  NOT NULL,
+  id          BIGINT   NOT NULL,
+  created_by  BIGINT   NOT NULL,
+  assigned_to BIGINT   NULL    ,
+  created_at  DATETIME NOT NULL,
+  updated_at  DATETIME NULL    ,
+  title       VARCHAR  NOT NULL,
+  status      VARCHAR  NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -63,5 +64,10 @@ ALTER TABLE ticket_notes
 ALTER TABLE tickets
   ADD CONSTRAINT FK_users_TO_tickets
     FOREIGN KEY (created_by)
+    REFERENCES users (id);
+
+ALTER TABLE tickets
+  ADD CONSTRAINT FK_users_TO_tickets1
+    FOREIGN KEY (assigned_to)
     REFERENCES users (id);
 

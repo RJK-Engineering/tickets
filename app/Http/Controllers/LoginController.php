@@ -20,9 +20,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
         }
-        
+
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
@@ -32,5 +31,4 @@ class LoginController extends Controller
     {
         dd(Auth::check());
     }
-
 }

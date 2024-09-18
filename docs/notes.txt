@@ -44,5 +44,13 @@ actions
 Verzenden ticketinformatie naar API
 Koppel categorieën aan ticket via model
 
-TODO
-add relations to model
+test@example.com
+admin@example.com
+
+delete?
+2024_08_23_095258_create_personal_access_tokens_table.php
+
+Een tabel die alle tickets toont, chronologisch gesorteerd op datum
+Kolommen in de tabel: ID, Titel, Categorieën, Status, Aangemaakt door, Aangemaakt op, Laatste update op, Toegewezen aan
+Normale gebruikers zien alleen hun eigen tickets in het overzicht
+Administrators hebben de mogelijkheid om alle tickets te zien

@@ -11,9 +11,11 @@ class TicketHasCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $note = \App\Models\TicketHasCategory::factory()->create([
-            'ticket_id' => 1,
-            'category_id' => 1,
-        ]);
+        foreach (\App\Models\Ticket::all() as $ticket) {
+            foreach (\App\Models\TicketCategory::inRandomOrder()->take(3)->get() as $category) {
+                $category->tickets()->attach($ticket);
+            }
+            $category->save();
+        }
     }
 }

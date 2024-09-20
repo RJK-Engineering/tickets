@@ -27,8 +27,25 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
+    /**
+     * Log the user out of the application.
+     */
+    public function logout(Request $request): RedirectResponse
+    {
+        // from https://laravel.com/docs/11.x/authentication
+        // doesnt work
+        // Auth::logout(); 
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+    
+        // $request->session()->regenerateToken();
+    
+        return redirect('/');
+    }
+
     public function user(Request $request)
     {
-        dd(Auth::check());
+        dd(Auth::user());
     }
 }

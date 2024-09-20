@@ -1,16 +1,9 @@
+import { addRoutes, useRouterInApp } from './services/router';
 import { createApp } from "vue"
-import App from "../App.vue"
-import { createMemoryHistory, createRouter } from "vue-router"
-import Login from "./domains/auth/pages/Login.vue"
+import App from "./App.vue"
 
-const router = createRouter({
-    history: createMemoryHistory(),
-    routes: [
-        { path: '/', redirect: { name: 'login' } },
-        { path: '/login', component: Login, name: 'login' },
-    ]
-})
+import { routes } from './routes';
+addRoutes(routes);
 
-createApp(App)
-.use(router)
-.mount("#app")
+const app = createApp(App);
+app.mount("#app")

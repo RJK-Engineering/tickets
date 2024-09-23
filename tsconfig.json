@@ -18,6 +18,9 @@
         "checkJs": true,
         "jsx": "preserve",
         "resolveJsonModule": true,
+        "paths": {
+            "services/*": ["./resources/js/services/*"]
+        }
     },
     "include": ["resources/js/**/*"]
 }

@@ -1,11 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import axios from 'axios';
 import LoginForm from '../components/LoginForm.vue'
-import { goToRoute } from '../../../services/router'
+// import { goToRoute } from '../../../services/router'
+// import { login } from 'services/auth';
 
 const submit = (user) => {
 	axios.post('/api/login', user)
-	goToRoute('home')
+	// goToRoute('home')
 }
 const check = () => {
 	axios.get('/api/user')

@@ -11,7 +11,7 @@ export const resolve = {
         // factories: path.join(srcPath, 'factories'),
 
         // // domains
-        // domains: path.join(srcPath, 'domains'),
+        domains: path.join(srcPath, 'domains'),
 
         // // general aliases
         services: path.join(srcPath, 'services'),

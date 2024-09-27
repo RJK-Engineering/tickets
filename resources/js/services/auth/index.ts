@@ -9,7 +9,6 @@ import type {
 import type {Component} from 'vue';
 import type {NavigationGuard} from 'vue-router';
 
-import {USER_DOMAIN_NAME} from 'domains/user';
 import {computed, ref} from 'vue';
 
 import {getRequest, postRequest, registerResponseErrorMiddleware} from 'services/http';
@@ -164,12 +163,6 @@ export const registerWithToken = async (data: RegisterData) => {
     goToLoginPage();
 
     return response;
-};
-
-export const getUserByToken = async (token: string): Promise<InvitedUser> => {
-    const {data} = await getRequest(`${USER_DOMAIN_NAME}/token/${token}`);
-
-    return data;
 };
 
 const authMeta = (title: string) => ({auth: false, canSeeWhenLoggedIn: false, title, ignoreFrom: true});

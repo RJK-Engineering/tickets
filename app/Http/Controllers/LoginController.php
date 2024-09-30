@@ -46,6 +46,8 @@ class LoginController extends Controller
 
     public function user(Request $request)
     {
+        error_log("Auth::user()");
+        error_log(Auth::user());
         dd(Auth::user());
     }
 }

@@ -50,11 +50,6 @@ admin@example.com
 delete?
 2024_08_23_095258_create_personal_access_tokens_table.php
 
-Een tabel die alle tickets toont, chronologisch gesorteerd op datum
-Kolommen in de tabel: ID, Titel, Categorieën, Status, Aangemaakt door, Aangemaakt op, Laatste update op, Toegewezen aan
-Normale gebruikers zien alleen hun eigen tickets in het overzicht
-Administrators hebben de mogelijkheid om alle tickets te zien
-
 app.ts
 try {
     await checkIfLoggedIn();
@@ -66,7 +61,7 @@ try {
 }
 - vangt errors in checkIfLoggedIn() af
 - snap comment niet, welke loop?
-- gebeurt niks in catch {}
+- gebeurt niks in catch {}, effectief zelfde als:
     // wacht
     await checkIfLoggedIn();
     // voer altijd uit
@@ -78,4 +73,4 @@ App.vue
 main tags here?
         <main>
             <RouterView />
-        </main> 
+        </main>

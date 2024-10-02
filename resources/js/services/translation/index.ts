@@ -12,7 +12,8 @@ const capitalizeString = (value: string) => `${value[0].toUpperCase()}${value.su
 
 const getTranslation = (key: string, pluralOrSingular: typeof PLURAL | typeof SINGULAR) => {
     const translation = translations[key];
-    if (!translation) throw new MissingTranslationError(`Missing translation for ${key}`);
+    if (!translation) return key;
+    // if (!translation) throw new MissingTranslationError(`Missing translation for ${key}`);
 
     return translation[pluralOrSingular];
 };

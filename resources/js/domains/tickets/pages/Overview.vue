@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { ticketStore } from '..'
+import { sortBy } from 'helpers/sort'
 import TicketsTable from '../components/TicketsTable.vue'
-import { getTickets } from '../store'
-const books = getTickets()
+
+const tickets = computed(() => sortBy(ticketStore.getters.all.value, 'created_at'));
+ticketStore.actions.getAll();
 </script>
 
 <template>
-	<TicketsTable v-if="books.length" :books="books" />
+	<TicketsTable v-if="tickets.length" :tickets="tickets" />
 </template>

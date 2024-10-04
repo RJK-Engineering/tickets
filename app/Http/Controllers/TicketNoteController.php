@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\TicketNote;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTicketNoteRequest;
+use App\Http\Requests\UpdateTicketNoteRequest;
 
 class TicketNoteController extends Controller
 {
@@ -12,23 +13,15 @@ class TicketNoteController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return TicketNote::all();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTicketNoteRequest $request)
     {
-        //
+        return TicketNote::create($request->all());
     }
 
     /**
@@ -36,23 +29,15 @@ class TicketNoteController extends Controller
      */
     public function show(TicketNote $ticketNote)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TicketNote $ticketNote)
-    {
-        //
+        return $ticketNote;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TicketNote $ticketNote)
+    public function update(UpdateTicketNoteRequest $request, TicketNote $ticketNote)
     {
-        //
+        return $ticketNote->update($request->all());
     }
 
     /**
@@ -60,6 +45,6 @@ class TicketNoteController extends Controller
      */
     public function destroy(TicketNote $ticketNote)
     {
-        //
+        return $ticketNote->delete();
     }
 }

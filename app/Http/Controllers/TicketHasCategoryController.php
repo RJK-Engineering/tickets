@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\TicketHasCategory;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTicketHasCategoryRequest;
+use App\Http\Requests\UpdateTicketHasCategoryRequest;
 
 class TicketHasCategoryController extends Controller
 {
@@ -12,23 +13,15 @@ class TicketHasCategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return TicketHasCategory::all();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTicketHasCategoryRequest $request)
     {
-        //
+        return TicketHasCategory::create($request->all());
     }
 
     /**
@@ -36,23 +29,15 @@ class TicketHasCategoryController extends Controller
      */
     public function show(TicketHasCategory $ticketHasCategory)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TicketHasCategory $ticketHasCategory)
-    {
-        //
+        return $ticketHasCategory;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TicketHasCategory $ticketHasCategory)
+    public function update(UpdateTicketHasCategoryRequest $request, TicketHasCategory $ticketHasCategory)
     {
-        //
+        return $ticketHasCategory->update($request->all());
     }
 
     /**
@@ -60,6 +45,6 @@ class TicketHasCategoryController extends Controller
      */
     public function destroy(TicketHasCategory $ticketHasCategory)
     {
-        //
+        return $ticketHasCategory->delete();
     }
 }

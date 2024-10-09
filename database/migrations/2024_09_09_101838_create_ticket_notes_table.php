@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ticket_notes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ticket_id')->constrained();
+            $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();
             $table->text('note');
         });
     }

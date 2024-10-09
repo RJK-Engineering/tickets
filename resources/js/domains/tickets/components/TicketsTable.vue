@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { goToEditPage } from 'services/router';
 import { Ticket } from '../types'
+import { ticketStore } from '..';
 defineProps<{tickets: Ticket[]}>()
 
 function formatDate(date: string) {
@@ -10,6 +12,9 @@ function formatUser(userId: string) {
 }
 function ticketCategories(ticket: Ticket) {
     return ""
+}
+function removeTicket(ticket: Ticket) {
+    ticketStore.actions.delete(ticket.id)
 }
 </script>
 
@@ -35,6 +40,9 @@ function ticketCategories(ticket: Ticket) {
             <td class="ticketCreatedAt">{{ formatDate(ticket.created_at) }}</td>
             <td class="ticketUpdatedAt">{{ formatDate(ticket.updated_at) }}</td>
             <td class="ticketAssignedTo">{{ formatUser(ticket.assigned_to) }}</td>
+
+            <td class="editTicket"><button @click="goToEditPage('tickets', ticket.id)">Edit</button></td>
+            <td class="deleteTicket"><button @click="removeTicket(ticket)">Delete</button></td>
         </tr>
     </tbody>
 </table>

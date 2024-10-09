@@ -18,7 +18,7 @@ export const createShowRoute = (module: string, component: RouteComponent, meta?
 });
 
 export const createCreateRoute = (module: string, component: RouteComponent, meta?: Meta) => ({
-    path: `/${getSingularTranslation(module)}/toevoegen`,
+    path: `/${getSingularTranslation(module)}/create`,
     name: module + CREATE_PAGE_NAME,
     component,
     meta: meta ? meta : defaultMeta,
@@ -32,7 +32,7 @@ export const createOverviewRoute = (module: string, component: RouteComponent, m
 });
 
 export const createEditRoute = (module: string, component: RouteComponent, meta?: Meta) => ({
-    path: `/${getSingularTranslation(module)}/:id/aanpassen`,
+    path: `/${getSingularTranslation(module)}/:id/edit`,
     name: module + EDIT_PAGE_NAME,
     component,
     meta: meta ? meta : defaultMeta,

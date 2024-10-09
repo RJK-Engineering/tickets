@@ -57,9 +57,9 @@ export const storeModuleFactory = <T extends {id: number}>(moduleName: string) =
             if (!data) return;
             setters.setById(data);
         },
-        update: async (id: number, item: Updatable<T>) => {
-            const {data} = await putRequest(`${moduleName}/${id}`, item);
-            if (!data) return;
+        update: async (item: Updatable<T>) => {
+            const {data} = await putRequest(`${moduleName}/${item.id}`, item);
+                if (!data) return;
             setters.setById(data);
         },
         delete: async (id: number) => {

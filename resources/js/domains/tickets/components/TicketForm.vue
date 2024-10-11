@@ -16,6 +16,26 @@ const ticket = ref({...props.ticket})
 				<td><input id="title" v-model.trim="ticket.title" maxlength="255" /></td>
 			</tr>
 			<tr>
+				<td><label for="status">Status</label></td>
+				<td><input id="status" v-model.trim="ticket.status" maxlength="255" /></td>
+			</tr>
+			<tr v-if="ticket.created_at">
+				<td><label for="created_at">Created At</label></td>
+				<td><input id="created_at" v-model.trim="ticket.created_at" maxlength="255" /></td>
+			</tr>
+			<tr v-if="ticket.created_by">
+				<td><label for="created_by">Created By</label></td>
+				<td><input id="created_by" v-model.trim="ticket.created_by" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td><label for="assigned_to">Assigned To</label></td>
+				<td><input id="assigned_to" v-model.trim="ticket.assigned_to" maxlength="255" /></td>
+			</tr>
+			<tr v-if="ticket.updated_at">
+				<td><label for="updated_at">Updated At</label></td>
+				<td><input id="updated_at" v-model.trim="ticket.updated_at" maxlength="255" /></td>
+			</tr>
+			<tr>
 				<td>
 					<button @click.prevent="$emit('submit', ticket)" :disabled="!ticket.title">
 						Submit

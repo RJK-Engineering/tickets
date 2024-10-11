@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('created_by')->constrained(table: 'users')->nullOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained(table: 'users')->nullOnDelete();
             $table->foreignId('assigned_to')->nullable()->constrained(table: 'users')->nullOnDelete();
             $table->timestamps();
             // DATETIME instead of TIMESTAMP column type

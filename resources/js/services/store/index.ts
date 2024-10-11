@@ -52,7 +52,7 @@ export const storeModuleFactory = <T extends {id: number}>(moduleName: string) =
             if (!data) return;
             setters.setById(data);
         },
-        create: async (newItem: New<T>) => {
+        store: async (newItem: New<T>) => {
             const {data} = await postRequest(moduleName, newItem);
             if (!data) return;
             setters.setById(data);

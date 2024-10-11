@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import TicketForm from '../components/TicketForm.vue'
-import { ticketStore } from '..'
 import { goToOverviewPage } from 'services/router'
-import { Ticket } from '../types';
+import { ticketStore } from '..'
+import { Ticket } from '../types'
 
+const getTicket = (id: string) => {
+	return ticketStore.getters.byId(Number(id)).value
+}
 const update = (ticket: Ticket) => {
 	ticketStore.actions.update(ticket)
-	goToOverviewPage('Tickets')
+	goToOverviewPage('tickets')
 }
 </script>
 
 <template>
-	<TicketForm :Ticket="ticketStore.actions.getById(Number($route.params.id))" @submit="update" />
+	<TicketForm :ticket="getTicket($route.params.id[0])" @submit="update" />
 </template>

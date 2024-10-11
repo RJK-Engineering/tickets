@@ -6,6 +6,14 @@ import Nav from './components/Nav.vue';
 
 <template>
     <h1>Tickets!</h1>
+    <nav>
+        <div v-if="$route">
+            <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+            <RouterLink :to="{ name: 'tickets.overview' }">Tickets</RouterLink>
+            | <RouterLink :to="{ name: 'tickets.create' }">New Ticket</RouterLink>
+            | <a href="/me">Me</a>
+        </div>
+    </nav>
     <AppContainer>
         <Nav v-if="isLoggedIn" />
         <main>
@@ -13,10 +21,3 @@ import Nav from './components/Nav.vue';
         </main> 
     </AppContainer>
 </template>
-
-<!-- <p v-if="$route"><strong>Current route path:</strong> {{ $route.fullPath }}</p>
-<nav>
-    <RouterLink :to="{ name: 'tickets' }">Tickets</RouterLink>
-    | <a href="/me">Me</a>
-</nav>
--->

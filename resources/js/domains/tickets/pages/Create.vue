@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import TicketForm from '../components/TicketForm.vue'
-import { goToOverviewPage } from 'services/router'
-import { ticketStore } from '..';
-import { Ticket } from '../types';
+import { goToEditPage } from 'services/router'
+import { ticketStore } from '..'
+import { Ticket } from '../types'
 
-const create = (ticket: Ticket) => {
-	ticketStore.actions.create(ticket)
-	goToOverviewPage('tickets')
+const store = (ticket: Ticket) => {
+	ticketStore.actions.store(ticket)
+	goToEditPage('tickets', ticket.id)
 }
 </script>
 
 <template>
-	<TicketForm :ticket="{}" @submit="create" />
+	<TicketForm @submit="store" />
 </template>

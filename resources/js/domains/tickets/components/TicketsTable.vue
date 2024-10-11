@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { goToEditPage } from 'services/router';
+import { goToEditPage, goToShowPage } from 'services/router'
 import { Ticket } from '../types'
-import { ticketStore } from '..';
+import { ticketStore } from '..'
+
 defineProps<{tickets: Ticket[]}>()
 
 function formatDate(date: string) {
@@ -15,6 +16,12 @@ function ticketCategories(ticket: Ticket) {
 }
 function removeTicket(ticket: Ticket) {
     ticketStore.actions.delete(ticket.id)
+}
+function edit(ticket: Ticket) {
+    goToEditPage('tickets', ticket.id)
+}
+function show(ticket: Ticket) {
+    goToShowPage('tickets', ticket.id)
 }
 </script>
 
@@ -31,7 +38,7 @@ function removeTicket(ticket: Ticket) {
             <th>Updated At</th>
             <th>Assigned To</th>
         </tr>
-        <tr v-for="ticket in tickets" @click="console.log(ticket.id)">
+        <tr v-for="ticket in tickets" @click="show(ticket)">
             <td class="ticketId">{{ ticket.id }}</td>
             <td class="ticketTitle">{{ ticket.title }}</td>
             <td class="ticketCategories">{{ ticketCategories(ticket) }}</td>
@@ -41,7 +48,7 @@ function removeTicket(ticket: Ticket) {
             <td class="ticketUpdatedAt">{{ formatDate(ticket.updated_at) }}</td>
             <td class="ticketAssignedTo">{{ formatUser(ticket.assigned_to) }}</td>
 
-            <td class="editTicket"><button @click="goToEditPage('tickets', ticket.id)">Edit</button></td>
+            <td class="editTicket"><button @click="edit(ticket)">Edit</button></td>
             <td class="deleteTicket"><button @click="removeTicket(ticket)">Delete</button></td>
         </tr>
     </tbody>

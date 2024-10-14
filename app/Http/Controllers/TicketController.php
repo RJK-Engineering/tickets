@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Http\Resources\TicketResource;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 
@@ -13,7 +14,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return Ticket::all();
+        return TicketResource::collection(Ticket::all());
     }
 
     /**
@@ -21,7 +22,7 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        return Ticket::create($request->all());
+        return new TicketResource(Ticket::create($request->all()));
     }
 
     /**
@@ -29,7 +30,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        return $ticket;
+        return new TicketResource($ticket);
     }
 
     /**
@@ -37,7 +38,7 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        return $ticket->update($request->all());
+        return new TicketResource($ticket->update($request->all()));
     }
 
     /**
@@ -45,6 +46,6 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        return $ticket->delete();
+        return new TicketResource($ticket->delete());
     }
 }

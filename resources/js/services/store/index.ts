@@ -45,22 +45,22 @@ export const storeModuleFactory = <T extends {id: number}>(moduleName: string) =
         getAll: async () => {
             const {data} = await getRequest(moduleName);
             if (!data) return;
-            setters.setAll(data);
+            setters.setAll(data.data);
         },
         getById: async (id: number) => {
             const {data} = await getRequest(`${moduleName}/${id}`);
             if (!data) return;
-            setters.setById(data);
+            setters.setById(data.data);
         },
         store: async (newItem: New<T>) => {
             const {data} = await postRequest(moduleName, newItem);
             if (!data) return;
-            setters.setById(data);
+            setters.setById(data.data);
         },
         update: async (item: Updatable<T>) => {
             const {data} = await putRequest(`${moduleName}/${item.id}`, item);
                 if (!data) return;
-            setters.setById(data);
+            setters.setById(data.data);
         },
         delete: async (id: number) => {
             await deleteRequest(`${moduleName}/${id}`);

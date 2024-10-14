@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TicketForm from '../components/TicketForm.vue'
+import Form from '../components/Form.vue'
 import { goToOverviewPage } from 'services/router'
 import { ticketStore } from '..'
 import { Ticket } from '../types'
@@ -14,5 +14,5 @@ const update = (ticket: Ticket) => {
 </script>
 
 <template>
-	<TicketForm :ticket="getTicket($route.params.id[0])" @submit="update" />
+	<Form :ticket="getTicket($route.params.id[0])" @submit="update" />
 </template>

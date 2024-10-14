@@ -1,11 +1,14 @@
 <script setup>
 import { ref } from 'vue'
+import { userStore } from '../../users/store'
 
 defineEmits(['submit'])
 
 const props = defineProps(['ticket'])
 const ticket = ref({...props.ticket})
 
+userStore.actions.getAll()
+const users = userStore.getters.all
 </script>
 
 <template>
@@ -29,7 +32,14 @@ const ticket = ref({...props.ticket})
 			</tr>
 			<tr>
 				<td><label for="assigned_to">Assigned To</label></td>
-				<td><input id="assigned_to" v-model.trim="ticket.assigned_to" maxlength="255" /></td>
+				<td>
+					<select id="author_id" v-if="users.length" v-model="ticket.assigned_to">
+                    <option></option>
+                    <option v-for="user in users" :value="user.id">
+                        {{ user.firstName + ' ' + user.lastName }}
+                    </option>
+                </select>
+				</td>
 			</tr>
 			<tr v-if="ticket.updated_at">
 				<td><label for="updated_at">Updated At</label></td>

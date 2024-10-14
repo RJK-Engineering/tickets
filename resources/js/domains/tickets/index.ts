@@ -16,3 +16,9 @@ export const ticketRoutes = [
 ];
 
 export const ticketStore = storeModuleFactory<Ticket>(TICKETS_DOMAIN_NAME);
+
+// export const ticketStore = {
+//     getters: baseTicketStore.getters,
+//     setters: baseTicketStore.setters,
+//     actions: {
+//         ...baseTicketStore.actions,

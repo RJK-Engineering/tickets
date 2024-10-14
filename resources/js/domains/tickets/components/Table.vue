@@ -43,10 +43,10 @@ function show(ticket: Ticket) {
             <td class="ticketTitle">{{ ticket.title }}</td>
             <td class="ticketCategories">{{ ticketCategories(ticket) }}</td>
             <td class="ticketStatus">{{ ticket.status }}</td>
-            <td class="ticketCreatedBy">{{ formatUser(ticket.created_by) }}</td>
-            <td class="ticketCreatedAt">{{ formatDate(ticket.created_at) }}</td>
-            <td class="ticketUpdatedAt">{{ formatDate(ticket.updated_at) }}</td>
-            <td class="ticketAssignedTo">{{ formatUser(ticket.assigned_to) }}</td>
+            <td class="ticketCreatedBy">{{ formatUser(ticket.createdBy) }}</td>
+            <td class="ticketCreatedAt">{{ formatDate(ticket.createdAt) }}</td>
+            <td class="ticketUpdatedAt">{{ formatDate(ticket.updatedAt) }}</td>
+            <td class="ticketAssignedTo">{{ formatUser(ticket.assignedTo) }}</td>
 
             <td class="editTicket"><button @click="edit(ticket)">Edit</button></td>
             <td class="deleteTicket"><button @click="removeTicket(ticket)">Delete</button></td>

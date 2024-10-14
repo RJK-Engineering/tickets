@@ -22,28 +22,28 @@ const users = userStore.getters.all
 				<td><label for="status">Status</label></td>
 				<td><input id="status" v-model.trim="ticket.status" maxlength="255" /></td>
 			</tr>
-			<tr v-if="ticket.created_at">
-				<td><label for="created_at">Created At</label></td>
-				<td><input id="created_at" v-model.trim="ticket.created_at" maxlength="255" /></td>
+			<tr v-if="ticket.createdAt">
+				<td><label for="createdAt">Created At</label></td>
+				<td><input id="createdAt" v-model.trim="ticket.createdAt" maxlength="255" /></td>
 			</tr>
-			<tr v-if="ticket.created_by">
-				<td><label for="created_by">Created By</label></td>
-				<td><input id="created_by" v-model.trim="ticket.created_by" maxlength="255" /></td>
+			<tr v-if="ticket.createdBy">
+				<td><label for="createdBy">Created By</label></td>
+				<td><input id="createdBy" v-model.trim="ticket.createdBy" maxlength="255" /></td>
 			</tr>
 			<tr>
-				<td><label for="assigned_to">Assigned To</label></td>
+				<td><label for="assignedTo">Assigned To</label></td>
 				<td>
-					<select id="author_id" v-if="users.length" v-model="ticket.assigned_to">
-                    <option></option>
-                    <option v-for="user in users" :value="user.id">
-                        {{ user.firstName + ' ' + user.lastName }}
-                    </option>
-                </select>
+					<select id="assignedTo" v-if="users.length" v-model="ticket.assignedTo">
+						<option></option>
+						<option v-for="user in users" :value="user.id">
+							{{ user.firstName + ' ' + user.lastName }}
+						</option>
+                	</select>
 				</td>
 			</tr>
-			<tr v-if="ticket.updated_at">
-				<td><label for="updated_at">Updated At</label></td>
-				<td><input id="updated_at" v-model.trim="ticket.updated_at" maxlength="255" /></td>
+			<tr v-if="ticket.updatedAt">
+				<td><label for="updatedAt">Updated At</label></td>
+				<td><input id="updatedAt" v-model.trim="ticket.updatedAt" maxlength="255" /></td>
 			</tr>
 			<tr>
 				<td>

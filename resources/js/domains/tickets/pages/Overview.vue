@@ -4,7 +4,7 @@ import { ticketStore } from '..'
 import { sortBy } from 'helpers/sort'
 import Table from '../components/Table.vue'
 
-const tickets = computed(() => sortBy(ticketStore.getters.all.value, 'created_at'));
+const tickets = computed(() => sortBy(ticketStore.getters.all.value, 'createdAt'));
 ticketStore.actions.getAll();
 </script>
 

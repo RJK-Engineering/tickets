@@ -1,4 +1,4 @@
-export const beautifyDate = (input: string | Date) => {
+export const formatDate = (input: string | Date) => {
     if (!input) return '';
     const date = new Date(input);
     const formattedDate = new Intl.DateTimeFormat('nl-NL', {

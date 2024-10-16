@@ -2,8 +2,8 @@ interface StoredObject {
     id: number,
 }
 export interface Ticket extends StoredObject {
-    createdBy: string,
-    assignedTo: string,
+    createdBy: number,
+    assignedTo: number,
     createdAt: string,
     updatedAt: string,
     title: string,

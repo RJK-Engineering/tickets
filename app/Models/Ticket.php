@@ -9,6 +9,15 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'created_by', 
+        'assigned_to', 
+        'created_at', 
+        'updated_at', 
+        'title', 
+        'status',
+    ];
+
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TicketCategory;
+use App\Http\Resources\TicketCategoryResource;
 use App\Http\Requests\StoreTicketCategoryRequest;
 use App\Http\Requests\UpdateTicketCategoryRequest;
 
@@ -13,7 +14,7 @@ class TicketCategoryController extends Controller
      */
     public function index()
     {
-        return TicketCategory::all();
+        return TicketCategoryResource::collection(TicketCategory::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class TicketCategoryController extends Controller
      */
     public function show(TicketCategory $ticketCategory)
     {
-        return $ticketCategory;
+        return new TicketCategoryResource($ticketCategory);
     }
 
     /**

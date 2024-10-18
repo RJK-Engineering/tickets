@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TicketNote;
+use App\Http\Resources\TicketNoteResource;
 use App\Http\Requests\StoreTicketNoteRequest;
 use App\Http\Requests\UpdateTicketNoteRequest;
 
@@ -13,7 +14,7 @@ class TicketNoteController extends Controller
      */
     public function index()
     {
-        return TicketNote::all();
+        return TicketNoteResource::collection(TicketNote::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class TicketNoteController extends Controller
      */
     public function show(TicketNote $ticketNote)
     {
-        return $ticketNote;
+        return new TicketNoteResource($ticketNote);
     }
 
     /**

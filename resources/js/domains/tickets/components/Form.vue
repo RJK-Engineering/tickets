@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { userStore } from 'domains/users/store'
-import { formatUserId } from 'domains/users/helpers';
-import { formatDate } from 'helpers/date';
-import StatusInput from './StatusInput.vue';
-import UserInput from 'domains/users/components/UserInput.vue';
-import CategoryInput from '../../categories/components/CategoryInput.vue';
+import { formatUserId } from 'domains/users/helpers'
+import { formatDate } from 'helpers/date'
+import StatusInput from './StatusInput.vue'
+import UserInput from 'domains/users/components/UserInput.vue'
+import CategoryInput from '../../categories/components/CategoryInput.vue'
 
 defineEmits(['submit'])
 
@@ -25,7 +25,7 @@ const users = userStore.getters.all
 			</tr>
 			<tr>
 				<td><label for="status">Categories</label></td>
-				<td><CategoryInput id="categories" :ticket="ticket" /></td>
+				<td><CategoryInput id="categories" :categories="ticket.categories" /></td>
 			</tr>
 			<tr>
 				<td><label for="status">Status</label></td>

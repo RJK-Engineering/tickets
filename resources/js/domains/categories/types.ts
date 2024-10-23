@@ -1,6 +1,6 @@
 interface StoredObject {
-    id: number,
+    id: number;
 }
 export interface Category extends StoredObject {
-    name: string,
+    name: string;
 }

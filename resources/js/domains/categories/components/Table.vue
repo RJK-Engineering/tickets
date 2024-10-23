@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { goToEditPage, goToShowPage } from 'services/router'
 import { Category } from '../types'
-import { categoryStore } from '..'
+import { store } from '../store'
 
 defineProps<{categories: Category[]}>()
 
 function removeCategory(category: Category) {
-    categoryStore.actions.delete(category.id)
+    store.actions.delete(category.id)
 }
 function edit(category: Category) {
     goToEditPage('categories', category.id)
@@ -23,7 +23,7 @@ function show(category: Category) {
             <th>ID</th>
             <th>Name</th>
         </tr>
-        <tr v-for="category in categories" @click="show(category)">
+        <tr v-for="category in categories">
             <td class="categoryId">{{ category.id }}</td>
             <td class="categoryName">{{ category.name }}</td>
 

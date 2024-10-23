@@ -17,8 +17,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::resource('tickets', TicketController::class);
-Route::resource('ticketCategories', TicketCategoryController::class);
-Route::resource('ticketNotes', TicketNoteController::class);
+Route::resource('categories', TicketCategoryController::class);
+Route::resource('notes', TicketNoteController::class);
 Route::resource('users', UserController::class);
 
 // Route::post('login', [AuthController::class, 'login']);

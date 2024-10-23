@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const props = defineProps(['ticket', 'categories'])
+const props = defineProps(['categories'])
 </script>
 
 <template>
-<select multiple>
-    <option v-for="category in categories" :value="category.id">
-        {{ category.name }}
-    </option>
-</select>
+<ul>
+    <li v-for="category in props.categories" :value="category.id">
+        <input type="checkbox" :id="category.id" />
+        <label :for="category.id">{{ category.name }}</label>
+    </li>
+</ul>
 </template>

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import Form from '../components/Form.vue'
 import { goToEditPage } from 'services/router'
-import { categoryStore } from '..'
+import { store } from '../store'
 import { Category } from '../types'
 
-const store = (category: Category) => {
-	categoryStore.actions.store(category)
+const create = (category: Category) => {
+	store.actions.store(category)
 	goToEditPage('categories', category.id)
 }
 </script>
 
 <template>
-	<Form @submit="store" />
+	<Form @submit="create" />
 </template>

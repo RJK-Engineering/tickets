@@ -17,7 +17,10 @@ class TicketResource extends JsonResource
         return [
             'id' => $this->id,
             'createdBy' => $this->created_by,
+            // 'category_ids' => $this->categories->pluck('id'),
+            'categories' => TicketCategoryResource::collection($this->categories),
             'assignedTo' => $this->assigned_to,
+            'notes' => TicketNoteResource::collection($this->notes),
             'createdAt' => $this->created_at,
             'updatedAt' => $this->updated_at,
             'title' => $this->title,

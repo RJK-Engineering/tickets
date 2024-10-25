@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { Category } from '../types';
+
 const props = defineProps(['categories'])
+const categories = <Array<Category>>props.categories
 </script>
 
 <template>
-{{ props.categories.map((e)=>e.name).join(', ') }}
+{{ categories.map((category)=>category.name).sort().join(', ') }}
 </template>

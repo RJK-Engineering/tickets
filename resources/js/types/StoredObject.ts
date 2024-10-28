@@ -1,0 +1,3 @@
+interface StoredObject {
+    id: number;
+}

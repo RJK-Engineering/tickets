@@ -22,7 +22,11 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        return Ticket::create($request->all());
+        $ticket = Ticket::create($request->all());
+        $request->collect('categories')->each(function (string $category) {
+            $ticket->categories()->attach($category);
+        });
+        return new TicketResource($ticket);
     }
 
     /**
@@ -38,7 +42,8 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        return $ticket->update($request->all());
+        $ticket->update($request->all());
+        return new TicketResource($ticket);
     }
 
     /**

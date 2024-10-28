@@ -4,7 +4,7 @@ import Login from './pages/Login.vue'
 // import RequestResetPassword from './pages/RequestResetPassword.vue'
 // import ResetPassword from './pages/ResetPassword.vue'
 
-export const routes = [{
+export const authRoutes = [{
     path: '/',
     name: 'Login',
     component: Login,

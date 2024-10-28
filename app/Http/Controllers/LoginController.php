@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Http\Resources\UserResource;
 
 class LoginController extends Controller
 {
@@ -21,10 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
         }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return new UserResource(Auth::getUser());
     }
 
     /**
@@ -34,13 +33,13 @@ class LoginController extends Controller
     {
         // from https://laravel.com/docs/11.x/authentication
         // doesnt work
-        // Auth::logout(); 
+        // Auth::logout();
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
-    
+
         // $request->session()->regenerateToken();
-    
+
         return redirect('/');
     }
 

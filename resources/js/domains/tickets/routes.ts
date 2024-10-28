@@ -6,7 +6,7 @@ import Overview from "./pages/Overview.vue"
 import Create from "./pages/Create.vue"
 import Edit from "./pages/Edit.vue"
 
-export const routes = [
+export const ticketRoutes = [
     createOverviewRoute(TICKETS_DOMAIN_NAME, Overview, <Meta>{auth: false}),
     // createShowRoute(TICKETS_DOMAIN_NAME, Show, <Meta>{auth: false}),
     createCreateRoute(TICKETS_DOMAIN_NAME, Create, <Meta>{auth: false}),

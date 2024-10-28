@@ -9,9 +9,10 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('login', [LoginController::class, 'authenticate']);
+Route::get('logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('logout', [LoginController::class, 'logout']);
+    // Route::get('logout', [LoginController::class, 'logout']);
     Route::get('me', [LoginController::class, 'user']);
     // Route::get('user', fn(Request $request) => $request->user());
 });

@@ -1,7 +1,7 @@
-import { routes as authRoutes } from "domains/auth/routes"
-import { routes as categoryRoutes } from "domains/categories/routes"
-import { routes as ticketRoutes } from "domains/tickets/routes"
-import { routes as userRoutes } from "domains/users/routes"
+import { authRoutes } from "domains/auth/routes"
+import { categoryRoutes } from "domains/categories/routes"
+import { ticketRoutes } from "domains/tickets/routes"
+import { userRoutes } from "domains/users/routes"
 
 export const routes = [
     ...authRoutes,

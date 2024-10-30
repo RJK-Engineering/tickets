@@ -2,16 +2,16 @@
 import Form from '../components/Form.vue'
 import { goToOverviewPage } from 'services/router'
 import { Ticket } from '../types'
-import { store } from '../store'
+import { ticketStore } from '../store'
 
-store.actions.getAll()
+ticketStore.actions.getAll()
 
 const getTicket = (id: string) => {
-	return store.getters.byId(Number(id)).value
+	return ticketStore.getters.byId(Number(id)).value
 }
 const update = (ticket: Ticket) => {
 	console.log(ticket)
-	store.actions.update(ticket)
+	ticketStore.actions.update(ticket)
 	// goToOverviewPage('tickets')
 }
 </script>

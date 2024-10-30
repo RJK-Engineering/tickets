@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import Form from '../components/Form.vue'
 import { goToOverviewPage } from 'services/router'
-import { store } from '../store'
+import { categoryStore } from '../store'
 import { Category } from '../types'
 
 const getTicket = (id: string) => {
-	return store.getters.byId(Number(id)).value
+	return categoryStore.getters.byId(Number(id)).value
 }
 const update = (category: Category) => {
-	store.actions.update(category)
+	categoryStore.actions.update(category)
 	goToOverviewPage('categories')
 }
 </script>

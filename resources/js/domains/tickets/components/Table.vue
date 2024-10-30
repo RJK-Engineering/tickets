@@ -3,13 +3,13 @@ import { goToEditPage, goToShowPage } from 'services/router'
 import { Ticket } from '../types'
 import { formatUserId } from '../../users/helpers'
 import { formatDate } from '../../../helpers/date'
-import { store } from '../store'
+import { ticketStore } from '../store'
 import CategoryList from '../../categories/components/CategoryList.vue'
 
 defineProps<{tickets: Ticket[]}>()
 
 function removeTicket(ticket: Ticket) {
-    store.actions.delete(ticket.id)
+    ticketStore.actions.delete(ticket.id)
 }
 function edit(ticket: Ticket) {
     goToEditPage('tickets', ticket.id)
@@ -36,7 +36,7 @@ function show(ticket: Ticket) {
         <tr v-for="ticket in tickets" @click="show(ticket)">
             <td class="ticketId">{{ ticket.id }}</td>
             <td class="ticketTitle">{{ ticket.title }}</td>
-            <td class="ticketCategories"><CategoryList :categories="ticket.categories" /></td>
+            <td class="ticketCategories"><CategoryList :categories="ticket.category_ids" /></td>
             <td class="ticketStatus">{{ ticket.status }}</td>
             <td class="ticketCreatedBy">{{ formatUserId(ticket.createdBy) }}</td>
             <td class="ticketCreatedAt">{{ formatDate(ticket.createdAt) }}</td>

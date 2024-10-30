@@ -2,14 +2,14 @@
 import Form from '../components/Form.vue'
 import { goToEditPage } from 'services/router'
 import { Ticket } from '../types'
-import { store } from '../store'
+import { ticketStore } from '../store'
 
-const create = (ticket: Ticket) => {
-	store.actions.store(ticket)
+const store = (ticket: Ticket) => {
+	ticketStore.actions.store(ticket)
 	goToEditPage('tickets', ticket.id)
 }
 </script>
 
 <template>
-	<Form @submit="create" />
+	<Form @submit="store" />
 </template>

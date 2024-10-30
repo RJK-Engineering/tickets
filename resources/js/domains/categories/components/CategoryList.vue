@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { Category } from '../types';
+import { categoryStore } from '../store'
 
 const props = defineProps(['categories'])
-const categories = <Array<Category>>props.categories
+const categorIds = props.categories
+
+const categorieNames = categorIds
+    .map((id: number) => categoryStore.getters.byId(id).value?.name)
+    .filter((e: string) => e != undefined)
 </script>
 
 <template>
-{{ categories.map((category)=>category.name).sort().join(', ') }}
+{{ categorieNames.sort().join(', ') }}
 </template>

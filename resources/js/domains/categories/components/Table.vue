@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { goToEditPage, goToShowPage } from 'services/router'
 import { Category } from '../types'
-import { store } from '../store'
+import { categoryStore } from '../store'
 
 defineProps<{categories: Category[]}>()
 
 function removeCategory(category: Category) {
-    store.actions.delete(category.id)
+    categoryStore.actions.delete(category.id)
 }
 function edit(category: Category) {
     goToEditPage('categories', category.id)

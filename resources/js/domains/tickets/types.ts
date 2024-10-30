@@ -8,5 +8,5 @@ export interface Ticket extends StoredObject {
     title: string;
     status: string;
 
-    categories: Array<Category>;
+    category_ids: Array<number>;
 }

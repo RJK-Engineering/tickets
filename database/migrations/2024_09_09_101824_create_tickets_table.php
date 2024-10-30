@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('created_by')->nullable()->constrained(table: 'users')->nullOnDelete();
             $table->foreignId('assigned_to')->nullable()->constrained(table: 'users')->nullOnDelete();
             $table->timestamps();
-            // DATETIME instead of TIMESTAMP column type
+            // create DATETIME instead of TIMESTAMP column type
             // $table->dateTime('created_at')->useCurrent();
             // $table->dateTime('updated_at')->useCurrentOnUpdate()->nullable();
             $table->string('title');

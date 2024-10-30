@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store } from 'domains/categories/store'
+import { categoryStore } from 'domains/categories/store'
 import { computed } from 'vue'
 import { sortBy } from 'helpers/sort'
 import { Category } from '../types';
@@ -11,8 +11,8 @@ interface Index {[id: number]: true}
 const categoryIndex: Index = {}
 categories.forEach((category) => categoryIndex[category.id] = true)
 
-const allCategories = computed(() => sortBy(store.getters.all.value, 'name'))
-store.actions.getAll()
+const allCategories = computed(() => sortBy(categoryStore.getters.all.value, 'name'))
+categoryStore.actions.getAll()
 </script>
 
 <template>

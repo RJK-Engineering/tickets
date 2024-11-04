@@ -27,7 +27,7 @@ const apiLoggedInCheckRoute = '/me';
 const apiSendResetPasswordEmailRoute = '/send-reset-password-email';
 const apiResetpasswordRoute = '/reset-password';
 
-const goToDefaultLoggedInPage = () => goToRoute('dashboard');
+const goToDefaultLoggedInPage = () => goToRoute('tickets.overview');
 
 export const goToLoginPage = (from?: string) => goToRoute(LOGIN_ROUTE_NAME, undefined, {from});
 
@@ -98,7 +98,8 @@ const logoutOfApp = () => {
 export const login = async (credentials: LoginCredentials) => {
     const response = await postRequest(apiLoginRoute, credentials);
 
-    setLoggedInAndUser(response.data.user);
+    // FIXME: why does new UserResource(Auth::getUser()) return data.data ??
+    setLoggedInAndUser(response.data.data);
     goToDefaultLoggedInPage();
 
     return response;

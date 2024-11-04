@@ -5,14 +5,14 @@ import { sortBy } from 'helpers/sort'
 import { Category } from '../types';
 
 const props = defineProps(['categories'])
-const categories = <Array<Category>>props.categories
+// const categories = <Array<Category>>props.categories
 
 interface Index {[id: number]: true}
 const categoryIndex: Index = {}
-categories.forEach((category) => categoryIndex[category.id] = true)
+// categories.forEach((category) => categoryIndex[category.id] = true)
 
 const allCategories = computed(() => sortBy(categoryStore.getters.all.value, 'name'))
-categoryStore.actions.getAll()
+// categoryStore.actions.getAll()
 </script>
 
 <template>

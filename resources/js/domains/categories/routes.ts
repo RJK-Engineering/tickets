@@ -7,8 +7,8 @@ import Create from "./pages/Create.vue"
 import Edit from "./pages/Edit.vue"
 
 export const categoryRoutes = [
-    createOverviewRoute(CATEGORIES_DOMAIN_NAME, Overview, <Meta>{auth: false}),
-    // createShowRoute(CATEGORIES_DOMAIN_NAME, Show, <Meta>{auth: false}),
-    createCreateRoute(CATEGORIES_DOMAIN_NAME, Create, <Meta>{auth: false}),
-    createEditRoute(CATEGORIES_DOMAIN_NAME, Edit, <Meta>{auth: false}),
+    createOverviewRoute(CATEGORIES_DOMAIN_NAME, Overview),
+    // createShowRoute(CATEGORIES_DOMAIN_NAME, Show),
+    createCreateRoute(CATEGORIES_DOMAIN_NAME, Create),
+    createEditRoute(CATEGORIES_DOMAIN_NAME, Edit),
 ]

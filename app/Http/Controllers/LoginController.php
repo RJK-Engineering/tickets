@@ -34,12 +34,10 @@ class LoginController extends Controller
         // TODO session stuff needed?
         $request->session()->invalidate();
         // $request->session()->regenerateToken();
-        // return (new JsonResponse)->cookie(self::COOKIE_NAME);
     }
 
     public function user(Request $request) : UserResource
     {
-        // dd(Auth::user());
-        return new UserResource(Auth::getUser());
+        return new UserResource(Auth::guard('web')->getUser());
     }
 }

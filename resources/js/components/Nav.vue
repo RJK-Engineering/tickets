@@ -6,8 +6,8 @@
     | <RouterLink :to="{ name: 'tickets.create' }">New Ticket</RouterLink>
     | <RouterLink :to="{ name: 'categories.overview' }">Categories</RouterLink>
     <!-- | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink> -->
-    | <a href="/me">Me</a>
-    | <RouterLink :to="{ name: 'logout' }">Log Out</RouterLink>
+    <!-- | <a href="/me">Me</a> -->
+    <!-- | <RouterLink :to="{ name: 'logout' }">Log Out</RouterLink> -->
 </nav>
 </template>
 

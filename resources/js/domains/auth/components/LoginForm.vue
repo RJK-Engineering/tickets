@@ -18,7 +18,7 @@ const user = ref({})
 			<tr>
 				<td>
 					<button @click.prevent="$emit('submit', user)" :disabled="!user.email || !user.password">
-						Submit
+						Log In
 					</button>
 				</td>
 			</tr>

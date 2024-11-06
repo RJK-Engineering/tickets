@@ -21,8 +21,8 @@ function show(ticket: Ticket) {
 </script>
 
 <template>
-<table id="tickets">
-    <tbody>
+<table>
+    <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
@@ -33,6 +33,8 @@ function show(ticket: Ticket) {
             <th>Updated At</th>
             <th>Assigned To</th>
         </tr>
+    </thead>
+    <tbody>
         <tr v-for="ticket in tickets" @click="show(ticket)">
             <td class="ticketId">{{ ticket.id }}</td>
             <td class="ticketTitle">{{ ticket.title }}</td>

@@ -19,41 +19,43 @@ const users = userStore.getters.all
 <template>
 	<form>
 		<table>
-			<tr>
-				<td><label for="title">Title</label></td>
-				<td><input id="title" v-model.trim="ticket.title" maxlength="255" /></td>
-			</tr>
-			<tr>
-				<td><label for="status">Categories</label></td>
-				<td><CategoryInput id="categories" :categories="ticket.category_ids" /></td>
-			</tr>
-			<tr>
-				<td><label for="status">Status</label></td>
-				<td><StatusInput id="status" :ticket="ticket" /></td>
-			</tr>
-			<tr v-if="ticket.createdAt">
-				<td><label for="createdAt">Created At</label></td>
-				<td>{{ formatDate(ticket.createdAt) }}</td>
-			</tr>
-			<tr v-if="ticket.createdBy">
-				<td><label for="createdBy">Created By</label></td>
-				<td>{{ formatUserId(ticket.createdBy) }}</td>
-			</tr>
-			<tr>
-				<td><label for="assignedTo">Assigned To</label></td>
-				<td><UserInput id="assignedTo" :ticket="ticket" :users="users" /></td>
-			</tr>
-			<tr v-if="ticket.updatedAt">
-				<td><label for="updatedAt">Updated At</label></td>
-				<td>{{ formatDate(ticket.updatedAt) }}</td>
-			</tr>
-			<tr>
-				<td>
-					<button @click.prevent="$emit('submit', ticket)" :disabled="!ticket.title">
-						Submit
-					</button>
-				</td>
-			</tr>
+			<tbody>
+				<tr>
+					<td><label for="title">Title</label></td>
+					<td><input id="title" v-model.trim="ticket.title" maxlength="255" /></td>
+				</tr>
+				<tr>
+					<td><label for="status">Categories</label></td>
+					<td><CategoryInput id="categories" :categories="ticket.category_ids" /></td>
+				</tr>
+				<tr>
+					<td><label for="status">Status</label></td>
+					<td><StatusInput id="status" :ticket="ticket" /></td>
+				</tr>
+				<tr v-if="ticket.createdAt">
+					<td><label for="createdAt">Created At</label></td>
+					<td>{{ formatDate(ticket.createdAt) }}</td>
+				</tr>
+				<tr v-if="ticket.createdBy">
+					<td><label for="createdBy">Created By</label></td>
+					<td>{{ formatUserId(ticket.createdBy) }}</td>
+				</tr>
+				<tr>
+					<td><label for="assignedTo">Assigned To</label></td>
+					<td><UserInput id="assignedTo" :ticket="ticket" :users="users" /></td>
+				</tr>
+				<tr v-if="ticket.updatedAt">
+					<td><label for="updatedAt">Updated At</label></td>
+					<td>{{ formatDate(ticket.updatedAt) }}</td>
+				</tr>
+				<tr>
+					<td>
+						<button @click.prevent="$emit('submit', ticket)" :disabled="!ticket.title">
+							Submit
+						</button>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</form>
 </template>

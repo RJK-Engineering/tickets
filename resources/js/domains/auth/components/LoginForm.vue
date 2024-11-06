@@ -7,21 +7,23 @@ const user = ref({})
 <template>
 	<form>
 		<table>
-			<tr>
-				<td><label for="email">Email</label></td>
-				<td><input id="email" v-model.trim="user.email" maxlength="255" /></td>
-			</tr>
-			<tr>
-				<td><label for="password">Password</label></td>
-				<td><input type="password" id="password" v-model.trim="user.password" maxlength="255" /></td>
-			</tr>
-			<tr>
-				<td>
-					<button @click.prevent="$emit('submit', user)" :disabled="!user.email || !user.password">
-						Log In
-					</button>
-				</td>
-			</tr>
+			<tbody>
+				<tr>
+					<td><label for="email">Email</label></td>
+					<td><input id="email" v-model.trim="user.email" maxlength="255" /></td>
+				</tr>
+				<tr>
+					<td><label for="password">Password</label></td>
+					<td><input type="password" id="password" v-model.trim="user.password" maxlength="255" /></td>
+				</tr>
+				<tr>
+					<td>
+						<button @click.prevent="$emit('submit', user)" :disabled="!user.email || !user.password">
+							Log In
+						</button>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</form>
 </template>

@@ -17,12 +17,14 @@ function show(category: Category) {
 </script>
 
 <template>
-<table id="categories">
-    <tbody>
+<table>
+    <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
         </tr>
+    </thead>
+    <tbody>
         <tr v-for="category in categories">
             <td class="categoryId">{{ category.id }}</td>
             <td class="categoryName">{{ category.name }}</td>

@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+console.log(router.getRoutes())
+</script>
 
 <template>
 <nav>
@@ -7,22 +12,12 @@
     | <RouterLink :to="{ name: 'categories.overview' }">Categories</RouterLink>
     <!-- | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink> -->
     <!-- | <a href="/me">Me</a> -->
-    <!-- | <RouterLink :to="{ name: 'logout' }">Log Out</RouterLink> -->
+    | <RouterLink :to="{ name: 'routes' }">Routes</RouterLink>
+    | <RouterLink :to="{ name: 'logout' }">Log Out</RouterLink>
 </nav>
 </template>
 
 <!--
-<template>
-    <div class="container-fluid bg-secondary">
-        <nav class="navbar navbar-expand-md">
-            <RouterLink class="btn btn-secondary ms-3" :to="{name: 'tickets.overview'}">
-                Tickets
-            </RouterLink>
-        </nav>
-    </div>
-</template>
-
-<script setup lang="ts">
 import {activeStatus, projectStore} from 'domains/projects';
 import {computed} from 'vue';
 import {goToLoginPage, logout} from 'domains/auth';

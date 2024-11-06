@@ -9,7 +9,7 @@ const props = defineProps(['categories'])
 
 interface Index {[id: number]: true}
 const categoryIndex: Index = {}
-// categories.forEach((category) => categoryIndex[category.id] = true)
+// categories.forEach(category => categoryIndex[category.id] = true)
 
 const allCategories = computed(() => sortBy(categoryStore.getters.all.value, 'name'))
 // categoryStore.actions.getAll()

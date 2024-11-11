@@ -2,17 +2,17 @@
 import { categoryStore } from 'domains/categories/store'
 import { computed } from 'vue'
 import { sortBy } from 'helpers/sort'
-import { Category } from '../types';
 
 const props = defineProps(['categories'])
-// const categories = <Array<Category>>props.categories
+const categories = <Array<number>>props.categories
 
+//FIXME: this is ugly
 interface Index {[id: number]: true}
 const categoryIndex: Index = {}
-// categories.forEach(category => categoryIndex[category.id] = true)
+categories.forEach(categoryId => categoryIndex[categoryId] = true)
 
+categoryStore.actions.getAll()
 const allCategories = computed(() => sortBy(categoryStore.getters.all.value, 'name'))
-// categoryStore.actions.getAll()
 </script>
 
 <template>

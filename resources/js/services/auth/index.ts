@@ -27,6 +27,7 @@ const apiLoggedInCheckRoute = '/me';
 const apiSendResetPasswordEmailRoute = '/send-reset-password-email';
 const apiResetpasswordRoute = '/reset-password';
 
+//FIXME: route name should be defined elsewhere not in this service
 const goToDefaultLoggedInPage = () => goToRoute('tickets.overview');
 
 export const goToLoginPage = (from?: string) => goToRoute(LOGIN_ROUTE_NAME, undefined, {from});
@@ -115,7 +116,8 @@ export const guestLogin = async () => {
 };
 
 export const logout = async () => {
-    const response = await postRequest(apiLogoutRoute, {});
+    //TODO: get or post request?
+    const response = await getRequest(apiLogoutRoute);
 
     logoutOfApp();
 

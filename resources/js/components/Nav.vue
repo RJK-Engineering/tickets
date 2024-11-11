@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-const router = useRouter()
-console.log(router.getRoutes())
+import {goToLoginPage, logout} from 'services/auth'
+
+const submitLogout = () => {
+    try {
+        logout()
+    } finally {
+        goToLoginPage()
+    }
+}
 </script>
 
 <template>
@@ -13,14 +19,19 @@ console.log(router.getRoutes())
     <!-- | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink> -->
     <!-- | <a href="/me">Me</a> -->
     | <RouterLink :to="{ name: 'routes' }">Routes</RouterLink>
-    | <RouterLink :to="{ name: 'logout' }">Log Out</RouterLink>
+    | <a class="link" @click.prevent="submitLogout">Log Out</a>
 </nav>
 </template>
+
+<style>
+.link {
+    cursor: pointer;
+}
+</style>
 
 <!--
 import {activeStatus, projectStore} from 'domains/projects'
 import {computed} from 'vue'
-import {goToLoginPage, logout} from 'domains/auth'
 import {handStore} from 'domains/hands'
 
 const PERCENTAGE = 100
@@ -62,18 +73,4 @@ const totalEfficientHoursHands = computed(() => {
     return uniqueHands.reduce((acc, next) => acc + +handStore.getters.byId(next).value?.hours, 0)
 })
 
-const submitLogout = async () => {
-    try {
-        await logout()
-    } finally {
-        goToLoginPage()
-    }
-}
-</script>
-
-<style>
-.router-link-exact-active {
-    background-color: rgba(255, 255, 255, 0.15)
-}
-</style>
 -->

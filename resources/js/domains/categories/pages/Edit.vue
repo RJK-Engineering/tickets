@@ -4,8 +4,8 @@ import { goToOverviewPage } from 'services/router'
 import { categoryStore } from '../store'
 import { Category } from '../types'
 
-const getTicket = (id: string) => {
-	return categoryStore.getters.byId(Number(id)).value
+const getTicket = (id: number) => {
+	return categoryStore.getters.byId(id).value
 }
 const update = (category: Category) => {
 	categoryStore.actions.update(category)
@@ -14,5 +14,5 @@ const update = (category: Category) => {
 </script>
 
 <template>
-	<Form :category="getTicket($route.params.id[0])" @submit="update" />
+	<Form :category="getTicket(Number($route.params.id))" @submit="update" />
 </template>

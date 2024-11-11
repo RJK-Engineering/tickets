@@ -6,7 +6,7 @@ import { ticketStore } from '../store'
 
 ticketStore.actions.getAll()
 
-const getTicket = (id: string) => {
+const getTicket = (id: number) => {
 	return ticketStore.getters.byId(Number(id)).value
 }
 const update = (ticket: Ticket) => {
@@ -17,5 +17,5 @@ const update = (ticket: Ticket) => {
 </script>
 
 <template>
-	<Form :ticket="getTicket($route.params.id[0])" @submit="update" />
+	<Form :ticket="getTicket(Number($route.params.id))" @submit="update" />
 </template>

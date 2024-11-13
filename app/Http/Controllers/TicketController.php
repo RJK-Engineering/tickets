@@ -23,9 +23,7 @@ class TicketController extends Controller
     public function store(StoreTicketRequest $request)
     {
         $ticket = Ticket::create($request->all());
-        $request->collect('categories')->each(function (string $category) {
-            $ticket->categories()->attach($category);
-        });
+        $request->collect('categories')->each(fn($category) => $ticket->categories()->attach($category));
         return new TicketResource($ticket);
     }
 

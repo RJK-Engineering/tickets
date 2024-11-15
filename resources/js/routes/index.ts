@@ -8,7 +8,7 @@ export const routes = [
     ...authRoutes,
     ...categoryRoutes,
     ...ticketRoutes,
-    // ...userRoutes,
+    ...userRoutes,
     {
         path: '/routes',
         name: 'routes',

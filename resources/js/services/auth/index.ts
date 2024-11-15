@@ -116,7 +116,6 @@ export const guestLogin = async () => {
 };
 
 export const logout = async () => {
-    //TODO: get or post request?
     const response = await getRequest(apiLogoutRoute);
 
     logoutOfApp();

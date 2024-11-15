@@ -22,8 +22,9 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        $ticket = Ticket::create($request->all());
-        $request->collect('categories')->each(fn($category) => $ticket->categories()->attach($category));
+        $validated = $request->validated();
+        $ticket = Ticket::create($validated);
+        $this->attachCategories($ticket, $validated);
         return new TicketResource($ticket);
     }
 
@@ -40,7 +41,9 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        $ticket->update($request->all());
+        $validated = $request->validated();
+        $ticket->update($validated);
+        $this->attachCategories($ticket, $validated);
         return new TicketResource($ticket);
     }
 
@@ -50,5 +53,10 @@ class TicketController extends Controller
     public function destroy(Ticket $ticket)
     {
         return $ticket->delete();
+    }
+
+    private function attachCategories($ticket, $validated)
+    {
+        $ticket->categories()->attach($validated['category_ids']);
     }
 }

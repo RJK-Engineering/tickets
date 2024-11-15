@@ -18,7 +18,6 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        // TODO session stuff needed?
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
         }
@@ -31,9 +30,8 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('web')->logout();
-        // TODO session stuff needed?
         $request->session()->invalidate();
-        // $request->session()->regenerateToken();
+        $request->session()->regenerateToken();
     }
 
     public function user(Request $request) : UserResource

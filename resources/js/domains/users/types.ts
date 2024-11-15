@@ -3,4 +3,6 @@ export interface User extends StoredObject {
     lastName: string;
     email: string;
     inviteToken: string;
+    role: string;
+    phone: string;
 }

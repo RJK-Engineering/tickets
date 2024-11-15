@@ -18,6 +18,7 @@ const submitLogout = () => {
     | <RouterLink :to="{ name: 'categories.overview' }">Categories</RouterLink>
     <!-- | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink> -->
     <!-- | <a href="/me">Me</a> -->
+    | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink>
     | <RouterLink :to="{ name: 'routes' }">Routes</RouterLink>
     | <a class="link" @click.prevent="submitLogout">Log Out</a>
 </nav>

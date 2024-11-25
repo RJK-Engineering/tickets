@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TicketNote extends Model
+class Note extends Model
 {
     use HasFactory;
 
     protected $fillable = ['note', 'ticket_id'];
 
     public $timestamps = false;
+
+    protected $table = 'ticket_notes';
 
     /**
      * All of the relationships to be touched.

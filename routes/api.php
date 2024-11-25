@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TicketController;
-use App\Http\Controllers\TicketCategoryController;
-use App\Http\Controllers\TicketNoteController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +15,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('me', [LoginController::class, 'user']);
     // Route::get('user', fn(Request $request) => $request->user());
     Route::resource('tickets', TicketController::class);
-    Route::resource('categories', TicketCategoryController::class);
-    Route::resource('notes', TicketNoteController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('notes', NoteController::class);
     Route::resource('users', UserController::class);
 });
 

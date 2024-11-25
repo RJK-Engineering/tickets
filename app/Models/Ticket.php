@@ -10,11 +10,11 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'created_by', 
-        'assigned_to', 
-        'created_at', 
-        'updated_at', 
-        'title', 
+        'created_by',
+        'assigned_to',
+        'created_at',
+        'updated_at',
+        'title',
         'status',
     ];
 
@@ -30,11 +30,11 @@ class Ticket extends Model
 
     public function notes()
     {
-        return $this->hasMany(TicketNote::class);
+        return $this->hasMany(Note::class);
     }
 
     public function categories()
     {
-        return $this->belongsToMany(TicketCategory::class, 'ticket_has_category', 'ticket_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'ticket_has_category', 'ticket_id', 'category_id');
     }
 }

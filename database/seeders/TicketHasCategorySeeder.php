@@ -12,7 +12,7 @@ class TicketHasCategorySeeder extends Seeder
     public function run(): void
     {
         foreach (\App\Models\Ticket::all() as $ticket) {
-            foreach (\App\Models\TicketCategory::inRandomOrder()->take(3)->get() as $category) {
+            foreach (\App\Models\Category::inRandomOrder()->take(3)->get() as $category) {
                 $category->tickets()->attach($ticket);
             }
             $category->save();

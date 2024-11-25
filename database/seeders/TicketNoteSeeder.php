@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TicketNoteSeeder extends Seeder
+class NoteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class TicketNoteSeeder extends Seeder
     public function run(): void
     {
         foreach (\App\Models\Ticket::all() as $ticket) {
-            $note = \App\Models\TicketNote::factory()->make();
+            $note = \App\Models\Note::factory()->make();
             $note->ticket()->associate($ticket);
             $note->save();
         }

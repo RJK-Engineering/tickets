@@ -15,10 +15,11 @@ class UpdateTicketRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:255'],
-            'created_by' => ['required', 'integer'],
-            'assigned_to' => ['required', 'integer'],
+            'createdBy' => ['required', 'integer'],
+            'assignedTo' => ['required', 'integer'],
             'title' => ['required', 'max:255'],
             'status' => ['required', 'max:255'],
+            'category_ids' => ['required'],
         ];
     }
 }

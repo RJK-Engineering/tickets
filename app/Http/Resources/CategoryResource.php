@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TicketNoteResource extends JsonResource
+class CategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,7 @@ class TicketNoteResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'ticketId' => $this->ticket_id,
-            'note' => $this->note,
+            'name' => $this->name,
         ];
     }
 }

@@ -11,16 +11,17 @@ class LoginController extends Controller
     /**
      * Handle an authentication attempt.
      */
-    public function authenticate(Request $request) : UserResource
+    public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-        }
+        if (! Auth::attempt($credentials))
+            return response()->json(['error' => 'Unauthorized']);
+
+        $request->session()->regenerate();
         return new UserResource(Auth::getUser());
     }
 

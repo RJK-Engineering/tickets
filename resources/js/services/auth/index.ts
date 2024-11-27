@@ -100,9 +100,12 @@ export const login = async (credentials: LoginCredentials) => {
     const response = await postRequest(apiLoginRoute, credentials);
 
     // FIXME: why does new UserResource(Auth::getUser()) return data.data ??
-    setLoggedInAndUser(response.data.data);
-    goToDefaultLoggedInPage();
-
+    if (response.data.error) {
+        alert(response.data.error);
+    } else {
+        setLoggedInAndUser(response.data.data);
+        goToDefaultLoggedInPage();
+    }
     return response;
 };
 

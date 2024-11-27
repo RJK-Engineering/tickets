@@ -57,6 +57,6 @@ class TicketController extends Controller
 
     private function attachCategories($ticket, $validated)
     {
-        $ticket->categories()->attach($validated['category_ids']);
+        $ticket->categories()->sync($validated['category_ids']);
     }
 }

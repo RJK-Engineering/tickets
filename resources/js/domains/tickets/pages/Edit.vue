@@ -9,10 +9,10 @@ ticketStore.actions.getAll()
 const getTicket = (id: number) => {
 	return ticketStore.getters.byId(Number(id)).value
 }
-const update = (ticket: Ticket) => {
+const update = async (ticket: Ticket) => {
 	console.log(ticket)
-	ticketStore.actions.update(ticket)
-	// goToOverviewPage('tickets')
+	await ticketStore.actions.update(ticket)
+	goToOverviewPage('tickets')
 }
 </script>
 

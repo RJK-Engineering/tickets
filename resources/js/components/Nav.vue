@@ -16,6 +16,7 @@ const submitLogout = () => {
     <RouterLink :to="{ name: 'tickets.overview' }">Tickets</RouterLink>
     | <RouterLink :to="{ name: 'tickets.create' }">New Ticket</RouterLink>
     | <RouterLink :to="{ name: 'categories.overview' }">Categories</RouterLink>
+    | <RouterLink :to="{ name: 'categories.create' }">New Category</RouterLink>
     <!-- | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink> -->
     <!-- | <a href="/me">Me</a> -->
     | <RouterLink :to="{ name: 'users.overview' }">Users</RouterLink>

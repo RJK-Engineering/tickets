@@ -26,7 +26,7 @@ const users = userStore.getters.all
 				</tr>
 				<tr>
 					<td><label for="status">Categories</label></td>
-					<td><CategoryInput id="categories" :categories="ticket.category_ids" /></td>
+					<td><CategoryInput :categories="ticket.category_ids" /></td>
 				</tr>
 				<tr>
 					<td><label for="status">Status</label></td>

@@ -52,14 +52,15 @@ export const storeModuleFactory = <T extends {id: number}>(moduleName: string) =
             if (!data) return;
             setters.setById(data.data);
         },
-        store: async (newItem: New<T>) => {
+        store: async (newItem: Updatable<T>) => {
             const {data} = await postRequest(moduleName, newItem);
             if (!data) return;
+            newItem.id = data.data.id;
             setters.setById(data.data);
         },
         update: async (item: Updatable<T>) => {
             const {data} = await putRequest(`${moduleName}/${item.id}`, item);
-                if (!data) return;
+            if (!data) return;
             setters.setById(data.data);
         },
         delete: async (id: number) => {
